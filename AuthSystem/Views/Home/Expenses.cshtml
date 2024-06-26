@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Wydatki";
+}
+
+@model List<Expense>
+
+<div class="text-center">
+    <h1 class="display-4">Twoje Wydatki</h1>
+    <br />
+    <hr />
+    <h3>Suma Wydatków: @ViewBag.Expenses zł</h3>
+    <br />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Kwota
+                </th>
+                <th>
+                    Opis
+                </th>
+                <th>
+                    Akcja
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var expense in Model)
+                {
+                    <tr>
+                        <td>
+                            @expense.Id
+                        </td>
+                        <td>
+                            @expense.Value.ToString("N2") zł
+                        </td>
+                        <td>
+                            @expense.Description
+                        </td>
+                        <td>
+                            <a asp-action="CreateEditExpense" asp-route-id="@expense.Id">Edytuj</a>
+                            <a asp-action="DeleteExpense" asp-route-id="@expense.Id" class="text-red">Usuń</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+
+    </table>
+    <a asp-controller="Home" asp-action="CreateEditExpense" class="btn btn-secondary">Dodaj Wydatek</a>
+</div>
