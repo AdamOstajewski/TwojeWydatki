@@ -1,18 +1,28 @@
-Instalacja i Konfiguracja
-
 Instalacja Środowiska Deweloperskiego
-•	Zainstaluj .NET 8.0 SDK i Runtime.
-•	Zainstaluj odpowiednie oprogramowanie do zarządzania bazą danych SQL, np. Microsoft SQL Server.
-•	Skonfiguruj połączenie z bazą danych w pliku konfiguracyjnym aplikacji appsettings.json.
-•   Wykonaj polecenie Update-Database, aby zaktualizować bazę danych.
-•	Uruchom aplikację za pomocą dotnet run.
 
+
+Zainstaluj .NET 8.0 SDK i Runtime.
+
+Zainstaluj odpowiednie oprogramowanie do zarządzania bazą danych SQL, na przykład Microsoft SQL Server.
+
+Konfiguracja Połączenia z Bazą Danych
+
+Skonfiguruj połączenie z bazą danych w pliku konfiguracyjnym aplikacji appsettings.json.
+
+
+Aktualizacja Bazy Danych
+
+
+Wykonaj polecenie Update-Database
+
+Uruchomienie Aplikacji
+
+Uruchom aplikację za pomocą dotnet run w terminalu. Aplikacja zostanie uruchomiona lokalnie na domyślnym porcie.
 
 Wdrożenie Aplikacji na Serwerze
-•	Skonfiguruj serwer docelowy: zainstaluj niezbędne zależności, takie jak .NET Runtime.
-•	Skopiuj pliki aplikacji na serwer.
-•	Skonfiguruj serwer do hostowania aplikacji ASP.NET Core.
-•	Upewnij się, że serwer ma odpowiednie połączenie z bazą danych SQL i jest skonfigurowany do pracy z aplikacją.
 
-Po pomyślnej instalacji i konfiguracji, System Zarządzania Wydatkami "Twoje-Wydatki" będzie gotowy do użycia.
+Skonfiguruj serwer docelowy:
 
+Zainstaluj .NET Runtime na serwerze.
+
+Upewnij się, że serwer ma odpowiednie połączenie z bazą danych SQL i jest skonfigurowany do pracy z aplikacją.
