@@ -1,0 +1,65 @@
+﻿@model YourSpendings.Models.ViewModels.ExpenseViewModel.ListExpenseViewModel
+@{
+    ViewData["Title"] = "Wydatki";
+}
+
+<h1>Wydatki</h1>
+
+
+
+
+@if (Model.Expenses.Count == 0)
+{
+    <h2 class="text-center">Brak wydatków</h2>
+    <div class="d-flex justify-content-center m-2">
+        <a class="btn btn-dark" asp-action="Create">Dodaj</a>
+    </div>
+}
+else
+{
+    <h2 class="text-center">Lista wydatków</h2>
+    <div class="d-flex justify-content-between">
+        <p class="text-end">
+            Suma wydatków wynosi: @Model.TotalValue
+        </p>
+            <a class="btn btn-dark" asp-action="Create">Dodaj</a>
+    </div>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Expenses[0].Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Expenses[0].Value)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Expenses[0].Description)
+                </th>
+                <th>Operacje</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Expenses)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Value)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Zmień</a> |
+                        <a asp-action="Remove" asp-route-id="@item.Id">Usuń</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+

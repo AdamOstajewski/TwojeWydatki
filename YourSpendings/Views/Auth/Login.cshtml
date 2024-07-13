@@ -1,0 +1,61 @@
+﻿@model YourSpendings.Models.ViewModels.Auth.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+@{
+    @if (Model?.IsResponse == true)
+    {
+        if (Model.IsSuccess == true)
+        {
+            <div class="alert alert-success">
+                @Model.Message
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-danger">
+                @Model.Message
+            </div>
+        }
+    }
+}
+
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Login">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label>Login</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Hasło</label>
+                <input asp-for="Password" class="form-control" type="password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Zaloguj" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-controller="Auth" asp-action="Register">Zarejestruj się</a>
+</div>
+
+<div>
+    <a asp-controller="Home" asp-action="Index">Wróć na stronę główną</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
